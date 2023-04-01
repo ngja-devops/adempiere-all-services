@@ -23,7 +23,7 @@ services:
       - adempiere_network
       
   adempiere-zk:
-    image: registry.digitalocean.com/erpya/adempiere-zk-jetty:1.0.0
+    image: ${ADEMPIERE_ZK_IMAGE}
     container_name: ${ADEMPIERE_NAME}
     restart: ${GENERIC_RESTART}
     ports:
@@ -37,7 +37,8 @@ services:
       - adempiere_network 
 
   adempiere-site:
-    image: solopcloud/adempiere-site-on-premise
+    image: ${ADEMPIERE_SITE_IMAGE}
+    container_name: ${ADEMPIERE_SITE}
     restart: ${GENERIC_RESTART}
     ports:
       - 8080:80
@@ -50,7 +51,7 @@ services:
       - adempiere_network 
       
   adempiere-middleware:
-    image: registry.digitalocean.com/erpya/adempiere-middleware:1.0.0
+    image: ${ADEMPIERE_MIDDLEWARE_IMAGE}
     container_name: ${MIDDLEWARE_HOST}
     restart: ${GENERIC_RESTART}
     ports:
@@ -71,7 +72,7 @@ services:
       - adempiere_network
       
   adempiere-backend-rs:
-    image: registry.digitalocean.com/erpya/adempiere-backend-rs:rs-1.0.3
+    image: ${ADEMPIERE_BACKEND_RS_IMAGE}
     restart: ${GENERIC_RESTART}
     ports:
       - 8889:7878
@@ -84,7 +85,7 @@ services:
       - adempiere_network
       
   adempiere-grpc-server:
-    image: registry.digitalocean.com/erpya/adempiere-grpc-server:1.0.0
+    image: ${ADEMPIERE_GRPC_SERVER_IMAGE}
     container_name: ${VUE_BACKEND_HOST}
     restart: ${GENERIC_RESTART}
     ports:
@@ -106,7 +107,7 @@ services:
       - adempiere_network
 
   vue-api:
-    image: solopcloud/adempiere-proxy:alpine-experimental-1.6.8
+    image: ${VUE_API_IMAGE}
     container_name: ${VUE_API_HOST}
     restart: ${GENERIC_RESTART}
     ports:
@@ -136,7 +137,7 @@ services:
       - adempiere_network
       
   vue-ui:
-    image: solopcloud/adempiere-vue:alpine-experimental-2.2.1
+    image: ${VUE_UI_IMAGE}
     container_name: ${VUE_UI_HOST}
     restart: ${GENERIC_RESTART}
     ports:
