@@ -33,7 +33,7 @@ SERVER_PRIVATE_KEY="A42CF908019918B1D9D9E04E596658345D162D4C0127A4C8365E8BDF6B01
 
 
 # ADempiere Backend RS
-ADEMPIERE_BACKEND_RS_IMAGE="registry.digitalocean.com/erpya/adempiere-backend-rs:rs-1.1.0"
+ADEMPIERE_BACKEND_RS_IMAGE="openls/adempiere-backend-rs:rs-1.1.0"
 ADEMPIERE_BACKEND_RS_HOST=adempiere-all.adempiere.backend.rs
 
 # UI
