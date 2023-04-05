@@ -73,6 +73,7 @@ services:
       
   adempiere-backend-rs:
     image: ${ADEMPIERE_BACKEND_RS_IMAGE}
+    container_name: ${ADEMPIERE_BACKEND_RS_HOST}
     restart: ${GENERIC_RESTART}
     ports:
       - 8889:7878
