@@ -3,7 +3,7 @@ GENERIC_RESTART="always"
 COMPOSE_PROJECT_NAME="adempiere"
 
 # Main Frontend
-ADEMPIERE_SITE_IMAGE="solopcloud/adempiere-site-on-premise"
+ADEMPIERE_SITE_IMAGE="openls/adempiere-landing-page:1.0.1"
 ADEMPIERE_SITE="adempiere-all.adempiere.site"
 VUE_HOST="http://0.0.0.0"
 ZK_HOST="http://0.0.0.0"
@@ -16,35 +16,35 @@ POSTGRES_PASSWORD="adempiere"
 POSTGRES_PORT="5432"
 
 # Adempire ZK
-ADEMPIERE_ZK_IMAGE="registry.digitalocean.com/erpya/adempiere-zk-jetty:1.0.0"
+ADEMPIERE_ZK_IMAGE="erpya/adempiere-zk-ui:jetty-1.0.1"
 ADEMPIERE_ZK_PORT=8888
 ADEMPIERE_NAME="adempiere-all.adempiere.zk"
 
 # ADempiere gRPC Server
-ADEMPIERE_GRPC_SERVER_IMAGE="registry.digitalocean.com/erpya/adempiere-grpc-server:1.0.1"
+ADEMPIERE_GRPC_SERVER_IMAGE="erpya/adempiere-grpc-server:1.0.1"
 VUE_BACKEND_HOST=adempiere-all.adempiere.vue.backend
 SECRET_KEY="A42CF908019918B1D9D9E04E596658345D162D4C0127A4C8365E8BDF6B015CC7"
 SERVICES_ENABLED="business; business_partner; core; dashboarding; dictionary; enrollment; express_shipment; file_management; general_ledger; in_out; invoice; issue_management; log; material_management; order; payment; payment_print_export; payroll_action_notice; pos; product; security; store; time_control; time_record; ui; user_customization; workflow;"
 
 
 # Middleware Name
-ADEMPIERE_MIDDLEWARE_IMAGE="registry.digitalocean.com/erpya/adempiere-middleware:1.0.0"
+ADEMPIERE_MIDDLEWARE_IMAGE="erpya/adempiere-middleware:1.0.1"
 MIDDLEWARE_HOST="adempiere-all.adempiere.middleware"
 SERVER_PRIVATE_KEY="A42CF908019918B1D9D9E04E596658345D162D4C0127A4C8365E8BDF6B015CC7"
 
 
 # ADempiere Backend RS
-ADEMPIERE_BACKEND_RS_IMAGE="openls/adempiere-backend-rs:rs-1.1.0"
+ADEMPIERE_BACKEND_RS_IMAGE="openls/adempiere-backend-rs:1.0.0"
 ADEMPIERE_BACKEND_RS_HOST=adempiere-all.adempiere.backend.rs
 
 # UI
-VUE_UI_IMAGE="solopcloud/adempiere-vue:alpine-experimental-2.2.1"
+VUE_UI_IMAGE="solopcloud/adempiere-vue:experimental-2.2.3"
 VUE_UI_URL=0.0.0.0
 VUE_UI_HOST=adempiere-all.vue
 VUE_UI_PORT=8891
 
 # API
-VUE_API_IMAGE="solopcloud/adempiere-proxy:alpine-experimental-1.6.8"
+VUE_API_IMAGE="solopcloud/adempiere-proxy:experimental-1.7.3"
 VUE_API_HOST=adempiere-all.vue.api
 ES_HOST=localhost
 ES_PORT="9200"
