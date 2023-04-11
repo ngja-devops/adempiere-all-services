@@ -23,8 +23,8 @@ Before it you should copy your database to `adempiere-all-service/postgresql/see
 
 ```Shell
 git clone https://github.com/erpya/adempiere-all-services
-cp env_template .env
 cd adempiere-all-services
+cp env_template .env
 ```
 
 ```Shell
