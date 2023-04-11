@@ -16,7 +16,7 @@ POSTGRES_PASSWORD="adempiere"
 POSTGRES_PORT="5432"
 
 # Adempire ZK
-ADEMPIERE_ZK_IMAGE="erpya/adempiere-zk-ui:jetty-1.0.1"
+ADEMPIERE_ZK_IMAGE="openls/adempiere-zk-ui:jetty-1.0.3"
 ADEMPIERE_ZK_PORT=8888
 ADEMPIERE_NAME="adempiere-all.adempiere.zk"
 
