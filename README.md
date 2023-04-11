@@ -20,7 +20,7 @@ Docker Compose version v2.16.0
 Just clone it
 
 ```Shell
-git clone https://github.com/erpya/adempiere-all-services
+git clone https://github.com/adempiere/adempiere-all-services
 cd adempiere-all-services
 cp env_template .env
 ```
