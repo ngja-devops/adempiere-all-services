@@ -6,6 +6,7 @@ services:
       context: postgresql/
       dockerfile: Dockerfile
     container_name: ${POSTGRES_NAME}
+    image: ${POSTGRES_NAME}
     restart: ${GENERIC_RESTART}
     ports:
       - ${POSTGRES_PORT}
