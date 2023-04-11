@@ -21,8 +21,8 @@ Just clone it
 
 ```Shell
 git clone https://github.com/erpya/adempiere-all-services
-cp env_template .env
 cd adempiere-all-services
+cp env_template .env
 ```
 
 ```Shell
