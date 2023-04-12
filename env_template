@@ -1,6 +1,6 @@
 ## Generic Restart
 GENERIC_RESTART="always"
-COMPOSE_PROJECT_NAME="adempiere"
+COMPOSE_PROJECT_NAME="adempiere-all"
 
 # Main Frontend
 ADEMPIERE_SITE_IMAGE="openls/adempiere-landing-page:1.0.1"
