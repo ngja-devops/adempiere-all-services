@@ -1,5 +1,5 @@
 # ADempiere All Services
-All services integrated for run with a docker compose. This is a simple project with compose with all project images.
+All services integrated for run with a docker compose. This is a simple project with compose with all project images. **¡No Production ready!**
 
 
 ## Run Docker Compose
