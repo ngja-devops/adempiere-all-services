@@ -160,6 +160,7 @@ services:
       - ${VUE_UI_PORT}:80
     environment:
       API_URL: http://${VUE_UI_URL}:${VUE_API_PORT}
+      TASK_MANAGER_URL: ${TASK_MANAGER_URL}
     networks:
       - adempiere_network
       
