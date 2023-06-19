@@ -43,6 +43,7 @@ VUE_UI_IMAGE="solopcloud/adempiere-vue:experimental-2.2.3"
 VUE_UI_URL=0.0.0.0
 VUE_UI_HOST=adempiere-all.vue
 VUE_UI_PORT=8891
+TASK_MANAGER_URL="http://0.0.0.0:8879"
 
 # API
 VUE_API_IMAGE="solopcloud/adempiere-proxy:experimental-1.7.3"
