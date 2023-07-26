@@ -3,7 +3,7 @@ GENERIC_RESTART="always"
 COMPOSE_PROJECT_NAME="adempiere-all"
 
 # Main Frontend
-ADEMPIERE_SITE_IMAGE="openls/adempiere-landing-page:1.0.1"
+ADEMPIERE_SITE_IMAGE="erpya/adempiere-landing-page:1.0.1"
 ADEMPIERE_SITE="adempiere-all.adempiere.site"
 VUE_HOST="http://0.0.0.0"
 ZK_HOST="http://0.0.0.0"
