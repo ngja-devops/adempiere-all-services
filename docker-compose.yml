@@ -3,26 +3,16 @@ version: "3.9"
 services:
   adempiere.db:
     build:
-      context: ${POSTGRES_CONTEXT_PATH_ON_HOST}              # Path relative to WD where Dockerfile will be found
-      dockerfile: ${DOCKERFILE_NAME}                         # Must exist in context. Otherwise, error. Valid only if no "image" defined.
-      args:
-        POSTGRES_IMAGE: ${POSTGRES_IMAGE}                    # Only this is actually needed for the Dockerfile. The other args are left just in case.
-        POSTGRES_DATABASE_NAME: ${POSTGRES_DATABASE_NAME}
-        POSTGRES_DEFAULT_RESTORE_FILE: ${POSTGRES_DEFAULT_RESTORE_FILE}
-        HOME_PATH_ON_CONTAINERS: ${HOME_PATH_ON_CONTAINERS}
-        POSTGRES_DB_BACKUP_PATH_ON_CONTAINER: ${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}
-        ADEMPIERE_GITHUB_ARTIFACT: ${ADEMPIERE_GITHUB_ARTIFACT}
-        ADEMPIERE_GITHUB_COMPRESSED_FILE: ${ADEMPIERE_GITHUB_COMPRESSED_FILE}
-        POSTGRES_RESTORE_FILE_NAME: ${POSTGRES_RESTORE_FILE_NAME}
+      context: postgresql/
+      dockerfile: Dockerfile
     container_name: ${POSTGRES_CONTAINER_NAME}
     hostname: ${POSTGRES_HOSTNAME}
     #image: ${POSTGRES_IMAGE}       # If there is an image, Dockerfile will be ignored! Use this if you want to bypass the Dockerfile + initdb.sh.
     restart: ${GENERIC_RESTART}
     ports:
-      - ${POSTGRES_EXTERNAL_PORT}:${POSTGRES_PORT}          # Set a fixed external port
+      - ${POSTGRES_EXTERNAL_PORT}:${POSTGRES_PORT}          # Set a fixed external portvolumes:
     volumes:
-      - volume_postgres:${POSTGRES_DEFAULT_DB_PATH_ON_CONTAINER} # Database dir for container. Default for Postgres.
-      - volume_backups:${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}   # Backup dir for container. Must be created with Dockerfile
+      - volume_postgres:/var/lib/postgresql/data
       - ${TIMEZONE_PATH_ON_HOST}:${TIMEZONE_PATH_ON_CONTAINER}:${TIMEZONE_OPTIONS}    # Map the Timezone  of the host to the Timezone of the container
       - ${LOCALTIME_PATH_ON_HOST}:${LOCALTIME_PATH_ON_CONTAINER}:${LOCALTIME_OPTIONS} # Map the Localtime of the host to the Timezone of the container
     healthcheck:
@@ -31,15 +21,8 @@ services:
       retries: 60
       start_period: 20s
       timeout: 10s
-    environment:            # Values might be needed for debugging
+    environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DATABASE_NAME: ${POSTGRES_DATABASE_NAME}
-      POSTGRES_DEFAULT_RESTORE_FILE: ${POSTGRES_DEFAULT_RESTORE_FILE}
-      HOME_PATH_ON_CONTAINERS: ${HOME_PATH_ON_CONTAINERS}
-      POSTGRES_DB_BACKUP_PATH_ON_CONTAINER: ${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}
-      ADEMPIERE_GITHUB_ARTIFACT: ${ADEMPIERE_GITHUB_ARTIFACT}
-      ADEMPIERE_GITHUB_COMPRESSED_FILE: ${ADEMPIERE_GITHUB_COMPRESSED_FILE}
-      POSTGRES_RESTORE_FILE_NAME: ${POSTGRES_RESTORE_FILE_NAME}
     networks:
       - adempiere_network
       
