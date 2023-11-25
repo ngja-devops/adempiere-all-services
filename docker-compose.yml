@@ -9,12 +9,13 @@ services:
         POSTGRES_IMAGE: ${POSTGRES_IMAGE}   
     container_name: ${POSTGRES_CONTAINER_NAME}
     hostname: ${POSTGRES_HOSTNAME}
-    #image: ${POSTGRES_IMAGE}       # If there is an image, Dockerfile will be ignored! Use this if you want to bypass the Dockerfile + initdb.sh.
+    #image: ${ceee.dev/POSTGRES_IMAGE}       # If there is an image, Dockerfile will be ignored! Use this if you want to bypass the Dockerfile + initdb.sh.
     restart: ${GENERIC_RESTART}
     ports:
       - ${POSTGRES_EXTERNAL_PORT}:${POSTGRES_PORT}          # Set a fixed external portvolumes:
     volumes:
-      - volume_postgres:/var/lib/postgresql/data
+      - volume_postgres:${POSTGRES_DEFAULT_DB_PATH_ON_CONTAINER} # Database dir for container. Default for Postgres.
+      - volume_backups:${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}   # Backup dir for container. Must be created with Dockerfile
       - ${TIMEZONE_PATH_ON_HOST}:${TIMEZONE_PATH_ON_CONTAINER}:${TIMEZONE_OPTIONS}    # Map the Timezone  of the host to the Timezone of the container
       - ${LOCALTIME_PATH_ON_HOST}:${LOCALTIME_PATH_ON_CONTAINER}:${LOCALTIME_OPTIONS} # Map the Localtime of the host to the Timezone of the container
     healthcheck:
