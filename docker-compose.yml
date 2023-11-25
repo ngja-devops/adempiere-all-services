@@ -214,8 +214,8 @@ services:
       REDIS_PORT: 6379
       REDIS_DB: 0
     depends_on:
-      eslastic-search:
-      redis: 
+      - eslastic-search
+      - redis 
       adempiere-grpc-server:
         condition: service_healthy
     networks:
