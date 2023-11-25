@@ -5,6 +5,8 @@ services:
     build:
       context: postgresql/
       dockerfile: Dockerfile
+      args:
+        POSTGRES_IMAGE: ${POSTGRES_IMAGE}   
     container_name: ${POSTGRES_CONTAINER_NAME}
     hostname: ${POSTGRES_HOSTNAME}
     #image: ${POSTGRES_IMAGE}       # If there is an image, Dockerfile will be ignored! Use this if you want to bypass the Dockerfile + initdb.sh.
