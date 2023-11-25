@@ -213,10 +213,11 @@ services:
       REDIS_HOST: adempiere-redis
       REDIS_PORT: 6379
       REDIS_DB: 0
-    depends_on:
-      - eslastic-search
-      - redis 
-      - adempiere-grpc-server: condition: service_healthy
+    depends_on:      
+      adempiere-grpc-server: 
+        condition: service_healthy
+      eslastic-search:
+      redis:
     networks:
       - adempiere_network
 
