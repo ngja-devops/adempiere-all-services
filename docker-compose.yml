@@ -216,8 +216,7 @@ services:
     depends_on:
       - eslastic-search
       - redis 
-      adempiere-grpc-server:
-        condition: service_healthy
+      - adempiere-grpc-server: condition: service_healthy
     networks:
       - adempiere_network
 
