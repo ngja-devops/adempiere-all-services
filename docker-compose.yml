@@ -192,7 +192,7 @@ services:
       - ${TIMEZONE_PATH_ON_HOST}:${TIMEZONE_PATH_ON_CONTAINER}:${TIMEZONE_OPTIONS}    # Map the Timezone  of the host to the Timezone of the container
       - ${LOCALTIME_PATH_ON_HOST}:${LOCALTIME_PATH_ON_CONTAINER}:${LOCALTIME_OPTIONS} # Map the Localtime of the host to the Timezone of the container
     healthcheck:
-      test: "bash -c 'printf \"GET / HTTP/1.1\n\n\" > /dev/tcp/$(hostname)/8085; exit $?;'"
+      test: "sh -c 'printf \"GET / HTTP/1.1\n\n\" > /dev/tcp/$(hostname)/8085; exit $?;'"
       interval: 10s
       retries: 60
       start_period: 20s
@@ -220,6 +220,23 @@ services:
         condition: service_healthy
     networks:
       - adempiere_network
+
+  e-commerce:
+    image: erpya/adempiere-ecommerce
+    container_name: adempiere-ecommerce
+    depends_on:
+      - vue-api
+      - adempiere-grpc-server
+    stdin_open: true
+    tty: true
+    environment:
+      SERVER_PORT: 3000
+      # Set the ip or dns of the server (not the dns of the container) to access from other client hosts
+      API_URL: http://localhost:${VUE_API_EXTERNAL_PORT}
+      VS_ENV: ${VUE_API_VS_ENV}
+      INDEX: ${VUE_API_INDEX}
+    ports:
+      - 3000:3000
       
   vue-ui:
     image: ${VUE_UI_IMAGE}
