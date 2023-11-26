@@ -236,7 +236,7 @@ services:
     environment:
       SERVER_PORT: 3000
       # Set the ip or dns of the server (not the dns of the container) to access from other client hosts
-      API_URL: http:\/\/localhost:8085
+      API_URL: http://localhost:8085
       VS_ENV: ${VUE_API_VS_ENV}
       INDEX: ${VUE_API_INDEX}
     ports:
