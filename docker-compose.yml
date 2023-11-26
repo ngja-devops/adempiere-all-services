@@ -215,7 +215,7 @@ services:
       VS_ENV: ${VUE_API_VS_ENV}
       INDEX: ${VUE_API_INDEX}
       RESTORE_DB: N
-      REDIS_HOST: adempiere-redis
+      REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_DB: 0
     depends_on:      
