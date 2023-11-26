@@ -226,7 +226,7 @@ services:
       - adempiere_network
 
   e-commerce:
-    image: ceee.dev/adempiere-ecommerce
+    image: erpya/adempiere-ecommerce:latest
     container_name: adempiere-ecommerce
     depends_on:
       - vue-api
