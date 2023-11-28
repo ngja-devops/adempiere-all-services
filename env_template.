@@ -1,6 +1,6 @@
 ## Generic Restart
 GENERIC_RESTART="always"
-CLIENT_NAME="demo"
+CLIENT_NAME="ngja"
 COMPOSE_PROJECT_NAME=adempiere-${CLIENT_NAME}
 
 # Global settings
