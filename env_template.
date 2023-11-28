@@ -81,8 +81,8 @@ ADEMPIERE_BACKEND_RS_EXTERNAL_PORT=8889
 ADEMPIERE_BACKEND_RS_PORT=7878
 
 # UI
-# VUE_UI_IMAGE="solopcloud/adempiere-vue:2.6.7"
-VUE_UI_IMAGE="solopcloud/adempiere-vue"
+VUE_UI_IMAGE="solopcloud/adempiere-vue:2.6.7"
+# VUE_UI_IMAGE="solopcloud/adempiere-vue"
 VUE_UI_URL=${HOST_URL}
 VUE_UI_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}.vue
 VUE_UI_HOSTNAME=${CLIENT_NAME}-vue-ui
@@ -92,8 +92,8 @@ VUE_UI_TASK_MANAGER_URL=${HOST_URL}
 VUE_UI_TASK_MANAGER_PORT=8879
 
 # API
-# VUE_API_IMAGE="solopcloud/adempiere-proxy:alpine-2.1.6"
-VUE_API_IMAGE="solopcloud/adempiere-proxy"
+V0UE_API_IMAGE="solopcloud/adempiere-proxy:alpine-2.1.6"
+# VUE_API_IMAGE="solopcloud/adempiere-proxy"
 VUE_API_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}.vue.api
 VUE_API_HOSTNAME=${CLIENT_NAME}-vue-api
 VUE_API_ES_HOST=localhost
