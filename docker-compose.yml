@@ -39,7 +39,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: telani@ceee.dev
       PGADMIN_DEFAULT_PASSWORD: M1H1ntal3
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
     networks:
       - adempiere_network 
 
@@ -301,3 +301,7 @@ volumes:
       device: ${POSTGRES_BACKUP_PATH_ON_HOST} # Must be created on host before calling docker compose. Backups must be copied here to be restored.
   volume_scheduler:
     name: ${ADEMPIERE_SCHEDULER_VOLUME}
+  volume_pgadmin:
+    name: pgadmin_data
+    
+  
