@@ -43,7 +43,7 @@ services:
     networks:
       - adempiere_network 
 
-redis:
+  redis:
     image: redis:4-alpine
     container_name: adempiere-redis
     stdin_open: true
