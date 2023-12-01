@@ -29,7 +29,7 @@ services:
     networks:
       - adempiere_network
 
- pgadmin:
+  pgadmin:
     image: dpage/pgadmin4
     container_name: adempiere-pgadmin
     restart: always
@@ -40,6 +40,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: M1H1ntal3
     volumes:
       - ./pgadmin-data:/var/lib/pgadmin
+    networks:
+      - adempiere_network 
 
 redis:
     image: redis:4-alpine
