@@ -29,7 +29,19 @@ services:
     networks:
       - adempiere_network
 
-  redis:
+ pgadmin:
+    image: dpage/pgadmin4
+    container_name: adempiere-pgadmin
+    restart: always
+    ports:
+      - "58888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: telani@ceee.dev
+      PGADMIN_DEFAULT_PASSWORD: M1H1ntal3
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+
+redis:
     image: redis:4-alpine
     container_name: adempiere-redis
     stdin_open: true
